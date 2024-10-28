@@ -1,12 +1,17 @@
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 // Sample data
 const sampleData = [
   { id: 1, name: 'Item 1', description: 'This is the first item' },
   { id: 2, name: 'Item 2', description: 'This is the second item' }
 ];
+
+
+app.get('/', (req, res) => {
+    res.status(200).json({ data: sampleData });
+  });
 
 // API 1: Get all items
 app.get('/api/items', (req, res) => {
